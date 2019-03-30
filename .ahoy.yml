@@ -1,0 +1,51 @@
+ahoycli: v2
+version: 0.0.1
+
+commands:
+  init:
+    cmd: 'cd ops-tools/docker && cp docker-compose.local.yml docker-compose.yml && docker-compose create'
+    usage: Init project.
+
+  up:
+    cmd: "cd ./ops-tools/docker && docker-compose up $@"
+    usage: Create and run docker services.
+
+  ps:
+    cmd: "cd ./ops-tools/docker && docker-compose ps $@"
+    usage: List the running docker-compose containers.
+
+  build:
+    cmd: "cd ./ops-tools/docker && docker-compose build $@"
+    usage: Build the docker-compose containers.
+
+  stop:
+    cmd: "cd ./ops-tools/docker && docker-compose stop $@"
+    usage: Stop the docker-compose containers.
+
+  restart:
+    cmd: "cd ./ops-tools/docker && docker-compose restart $@"
+    usage: Restart the docker-compose containers.
+
+  bash:
+    cmd: "cd ./ops-tools/docker && docker-compose exec cli /bin/bash"
+    usage: Start a shell in cli container.
+
+  npm:
+    cmd: 'cd ./ops-tools/docker && docker-compose exec cli sh -c "npm $@"'
+    usage: Run npm in nyumed theme folder at cli container.
+
+  npm_i:
+    cmd: 'cd ./ops-tools/docker && docker-compose exec cli sh -c "npm i"'
+    usage: Run npm install at cli container.
+
+  npm_is:
+    cmd: 'cd ./ops-tools/docker && docker-compose exec cli sh -c "npm i --save $@"'
+    usage: Run npm install and save dependencies at cli container.
+
+  npm_isd:
+    cmd: 'cd ./ops-tools/docker && docker-compose exec cli sh -c "npm i --save-dev $@"'
+    usage: Run npm install and save dev dependencies at cli container.
+
+  sync:
+    cmd: "git pull origin develop"
+    usage: sync you current branch with remoute develop branch

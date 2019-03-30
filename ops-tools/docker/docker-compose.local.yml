@@ -1,0 +1,19 @@
+version: '3.4'
+
+x-env: &env
+  ENV: 'local'
+
+services:
+  cli:
+    build: ./images/base/cli
+    environment:
+      <<: *env
+    volumes:
+      - ../../cli:/var/www/cli
+    ports:
+      - '3000:3000'
+    networks:
+      - frontend-net
+
+networks:
+  frontend-net:
