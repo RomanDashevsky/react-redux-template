@@ -1,3 +1,6 @@
+//TODO: find better way to include global variables and mixins.
+@import "index";
+
 .App {
   text-align: center;
 }
@@ -9,7 +12,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: $color-black;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
